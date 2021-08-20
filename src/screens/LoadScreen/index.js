@@ -14,7 +14,7 @@ const LoadScreen = (props) => {
     } else {
       setTimeout(() => {
         navigation.navigate('NavStack');
-      }, 500);
+      }, 1000);
     }
   }, []);
 

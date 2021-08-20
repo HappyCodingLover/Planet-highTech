@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   Alert,
   Image,
@@ -9,16 +9,16 @@ import {
   View,
 } from 'react-native';
 import Button from 'react-native-button';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import dynamicStyles from './styles';
-import { useColorScheme } from 'react-native-appearance';
+import {useColorScheme} from 'react-native-appearance';
 import TNActivityIndicator from '../../truly-native/TNActivityIndicator';
 import TNProfilePictureSelector from '../../truly-native/TNProfilePictureSelector/TNProfilePictureSelector';
-import { IMLocalized } from '../../localization/IMLocalization';
-import { setUserData } from '../redux/auth';
-import { connect } from 'react-redux';
-import { localizedErrorMessage } from '../utils/ErrorCode';
+import {IMLocalized} from '../../localization/IMLocalization';
+import {setUserData} from '../redux/auth';
+import {connect} from 'react-redux';
+import {localizedErrorMessage} from '../utils/ErrorCode';
 import TermsOfUseView from '../components/TermsOfUseView';
 
 const SignupScreen = (props) => {
@@ -59,14 +59,9 @@ const SignupScreen = (props) => {
       error: usernameError,
     } = await authManager.validateUsernameFieldIfNeeded(inputFields, appConfig);
     if (usernameError) {
-      Alert.alert(
-        '',
-        IMLocalized(usernameError),
-        [{ text: IMLocalized('OK') }],
-        {
-          cancelable: false,
-        },
-      );
+      Alert.alert('', IMLocalized(usernameError), [{text: IMLocalized('OK')}], {
+        cancelable: false,
+      });
       setInputFields((prevFields) => ({
         ...prevFields,
         password: '',
@@ -78,7 +73,7 @@ const SignupScreen = (props) => {
       Alert.alert(
         '',
         IMLocalized('Please enter a valid email address.'),
-        [{ text: IMLocalized('OK') }],
+        [{text: IMLocalized('OK')}],
         {
           cancelable: false,
         },
@@ -90,7 +85,7 @@ const SignupScreen = (props) => {
       Alert.alert(
         '',
         IMLocalized('Password cannot be empty.'),
-        [{ text: IMLocalized('OK') }],
+        [{text: IMLocalized('OK')}],
         {
           cancelable: false,
         },
@@ -108,7 +103,7 @@ const SignupScreen = (props) => {
         IMLocalized(
           'Password is too short. Please use at least 6 characters for security reasons.',
         ),
-        [{ text: IMLocalized('OK') }],
+        [{text: IMLocalized('OK')}],
         {
           cancelable: false,
         },
@@ -158,14 +153,14 @@ const SignupScreen = (props) => {
           Keyboard.dismiss();
           props.navigation.reset({
             index: 0,
-            routes: [{ name: 'MainStack', params: { user: user } }],
+            routes: [{name: 'MainStack', params: {user: user}}],
           });
         } else {
           setLoading(false);
           Alert.alert(
             '',
             localizedErrorMessage(response.error),
-            [{ text: IMLocalized('OK') }],
+            [{text: IMLocalized('OK')}],
             {
               cancelable: false,
             },
@@ -215,7 +210,7 @@ const SignupScreen = (props) => {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
-        style={{ flex: 1, width: '100%' }}
+        style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Image

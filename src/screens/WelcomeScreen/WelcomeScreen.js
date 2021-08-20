@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import Button from 'react-native-button';
-import {AppState, Image, Keyboard, Platform, Text, View} from 'react-native';
+import {
+  Alert,
+  AppState,
+  Image,
+  Keyboard,
+  Platform,
+  Text,
+  View,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 // import messaging from '@react-native-firebase/messaging';
 import TNActivityIndicator from '../../truly-native/TNActivityIndicator';
@@ -86,24 +94,25 @@ const WelcomeScreen = (props) => {
         containerStyle={styles.loginContainer}
         style={styles.loginText}
         onPress={() => {
-          appConfig.isSMSAuthEnabled
-            ? props.navigation.navigate('LoginStack', {
-                screen: 'Sms',
-                params: {
-                  isSigningUp: false,
-                  appStyles,
-                  appConfig,
-                  authManager,
-                },
-              })
-            : props.navigation.navigate('LoginStack', {
-                screen: 'Login',
-                params: {
-                  appStyles,
-                  appConfig,
-                  authManager,
-                },
-              });
+          Alert.alert('Coming soon');
+          // appConfig.isSMSAuthEnabled
+          //   ? props.navigation.navigate('LoginStack', {
+          //       screen: 'Sms',
+          //       params: {
+          //         isSigningUp: false,
+          //         appStyles,
+          //         appConfig,
+          //         authManager,
+          //       },
+          //     })
+          //   : props.navigation.navigate('LoginStack', {
+          //       screen: 'Login',
+          //       params: {
+          //         appStyles,
+          //         appConfig,
+          //         authManager,
+          //       },
+          //     });
         }}>
         {'Log In'}
       </Button>
@@ -111,24 +120,26 @@ const WelcomeScreen = (props) => {
         containerStyle={styles.signupContainer}
         style={styles.signupText}
         onPress={() => {
-          appConfig.isSMSAuthEnabled
-            ? props.navigation.navigate('LoginStack', {
-                screen: 'Sms',
-                params: {
-                  isSigningUp: true,
-                  appStyles,
-                  appConfig,
-                  authManager,
-                },
-              })
-            : props.navigation.navigate('LoginStack', {
-                screen: 'Signup',
-                params: {
-                  appStyles,
-                  appConfig,
-                  authManager,
-                },
-              });
+          Alert.alert('Coming soon');
+
+          // appConfig.isSMSAuthEnabled
+          //   ? props.navigation.navigate('LoginStack', {
+          //       screen: 'Sms',
+          //       params: {
+          //         isSigningUp: true,
+          //         appStyles,
+          //         appConfig,
+          //         authManager,
+          //       },
+          //     })
+          //   : props.navigation.navigate('LoginStack', {
+          //       screen: 'Signup',
+          //       params: {
+          //         appStyles,
+          //         appConfig,
+          //         authManager,
+          //       },
+          //     });
         }}>
         {'Sign Up'}
       </Button>
